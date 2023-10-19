@@ -1,4 +1,4 @@
-name: Deploy Deb
+name: Build and Deploy Deb
 
 on:
   push:
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-and-upload:
-    name: Build and upload
+    name: Build Deb and upload
     runs-on: ubuntu-latest
 
     steps:
@@ -41,7 +41,7 @@ jobs:
         run: |
           deb_package=$(ls target/debian/*.deb | head -n 1)
           echo "ASSET=$deb_package" >> $GITHUB_ENV
-      - name: Release
+      - name: Upload Deb Package
         uses: softprops/action-gh-release@v1
         with:
           files: |
