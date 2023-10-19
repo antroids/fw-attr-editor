@@ -34,7 +34,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: deb
-          args: --verbose --release
+          args: --verbose
 
       - name: Locate Deb Package
         shell: bash
